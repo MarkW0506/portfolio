@@ -1,0 +1,111 @@
+h1, h2, h3, h4, h5, h6{
+    @extend %reset;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url('../fonts/Montserrat-Light.ttf');
+}
+
+header {
+    border-bottom: #f1f1f1 1px solid;
+    position: relative;
+    .logo{
+        float: left;
+        a{
+            display: block;
+            img{
+               max-width: 100%;
+            }
+        }
+    }
+
+    nav {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        margin-top: -26px;
+        ul{
+            @extend %reset;
+            li{
+                a{
+                    color: #404040;
+                    text-decoration: none;
+                    transition: 150ms;
+                    font-size: 1.2em;
+
+                    &:hover, &:focus{
+                        text-decoration: underline;
+                        color: #09f;
+                    }
+                }
+            }
+        }
+    }
+
+    @supports (display: grid){
+
+        nav {
+            ul{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-column-gap: 5px;
+                grid-row-gap: 5px;
+                li{
+                    float: none;
+                    width: 100%;
+                    padding: 15px;
+                    box-sizing: border-box;
+                    a{
+                        display: block;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+    
+    &:after {
+        @extend %clear;
+    }
+}
+
+section{   
+    background-color: #404040;
+    background-image: url('../images/main-bg.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    .banner {
+        position: relative;
+        height: 60vh;
+        max-width: 1200px;
+        min-height: 450px;
+        margin: 0 auto;
+
+        &:before{
+            content: "​";
+            display: inline-block;
+            height: 100%;
+            width: 0;
+            vertical-align: middle;
+        }
+
+        .caption{
+            display: inline-block;
+            vertical-align: middle;
+            padding: 50px;
+            border: white 2px solid;
+            color: white;
+            
+            h2{
+                font-size: 3.5em;
+                font-family: Montserrat;
+            }
+
+            h3{
+
+            }
+        }
+    }
+}

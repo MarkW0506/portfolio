@@ -1,0 +1,49 @@
+//方法與涵式
+
+//rwd 與 hack================================================================
+
+	@mixin rwd($max, $min: 0) { //自訂 RWD 寬度，第一個參數是最大值，第二個參數是最小值
+
+		@if( $rwd==true) {
+			$type: 'screen and (max-width: #{$max + 0px }) and (min-width: #{$min + 1px})';
+
+			@media #{$type} {
+				@content;
+			}
+		}
+	}
+
+	@mixin media($key) { //查詢瀏覽器媒體，給 rwd 用，$key 為 $media 的 key
+
+		@if( $rwd == true ) {
+
+			@media #{map-get( $media, $key )} {
+				@content;
+			}
+		}
+	}
+
+	@mixin supports($key) { //查詢瀏覽器媒體與瀏覽器支持，在不同情況下呈現不同樣式，$key 為 $supports 的 $key
+
+		@supports #{ '(' + $key + ')' } {
+			@content;
+		}
+	}
+
+//清浮動
+
+	%clear { //偽類清除浮動的方法
+		content: '';
+		display: block;
+		height: 0;
+		clear: both;
+	}
+//清除基本設定
+
+	%reset {
+		margin: 0;
+		padding: 0;
+		font-size: 1em;
+		font-weight: normal;
+		list-style-type: none;
+	}
