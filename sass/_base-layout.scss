@@ -14,8 +14,13 @@ header {
         float: left;
         a{
             display: block;
+            transition: 150ms;
             img{
                max-width: 100%;
+            }
+
+            &:hover, &:focus{
+                background-color: #f5f5f5;
             }
         }
     }
@@ -70,11 +75,12 @@ header {
     }
 }
 
-section{   
+.block1{   
     background-color: #404040;
     background-image: url('../images/main-bg.jpg');
     background-position: top center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 
     .banner {
         position: relative;
@@ -94,18 +100,71 @@ section{
         .caption{
             display: inline-block;
             vertical-align: middle;
-            padding: 50px;
-            border: white 2px solid;
+            padding: 40px;
             color: white;
+            border: white 1px solid;
+            background-color: rgba(0,0,0,0.2);
             
             h2{
-                font-size: 3.5em;
+                font-size: 3em;
                 font-family: Montserrat;
+                margin-bottom: 5px;
             }
 
             h3{
-
+                margin-top: 5px;
+                font-size: 1.5em;
+                letter-spacing: 0.1em;
+                text-align: center;
+                font-family: '微軟正黑體';
             }
         }
     }
+}
+
+.block2 {
+    .about{
+        max-width: 1200px;
+        padding: 60px 0;
+        margin: 0 auto;
+        text-align: center;
+        
+        h2{
+            font-size: 2em;
+            font-family: Montserrat;
+            color: #333333;
+            letter-spacing: 0.3em;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            position: relative;
+
+            &:before, &:after{
+                display: inline-block;
+                content: '';
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 8px;
+                width: 120px;
+                min-width: 50px;
+                height: 10px;
+                background-color: #dddddd;
+                background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, transparent), color-stop(.5, #ffffff), to(#ffffff)),
+                -webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, transparent), color-stop(.5, #ffffff), to(#ffffff));
+                -webkit-background-size: 5px 5px;
+            }
+        }
+        
+        .caption{
+            margin-top: 15px;
+
+            h3{
+                color: #666666;
+                line-height: 250%;
+                font-family: '微軟正黑體';
+            }
+        }
+    }
+
+
 }
